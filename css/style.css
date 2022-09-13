@@ -295,7 +295,7 @@ main p {
   font-size: 3.5rem;
   line-height: 4rem;
   text-align: right;
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
 }
 
 .course_box .course_detail h3 span {
@@ -317,6 +317,72 @@ main p {
   line-height: 1.8rem;
   padding: 33px 20px;
   margin: 35px 0 20px 0;
+}
+
+/* アコーディオンメニュー */
+.menu {
+  position: relative;
+}
+
+.menu label {
+  position: absolute;
+  top: -50px;
+  right: 20px;
+  background-color: #b32f2e;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu label:hover {
+  opacity: 0.8;
+}
+
+.menu input {
+  display: none;
+}
+
+.menu_box {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: .5s;
+}
+
+.menu input:checked ~ .menu_box {
+  padding: 0 20px 10px;
+  height: auto;
+  opacity: 1;
+}
+
+.menu_box ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.menu_box ul li {
+  width: calc((100% - 100px) / 10);
+}
+
+.menu_box ul.item-11 li {
+  width: calc((100% - 100px) / 11);
+}
+
+.menu_box ul li img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50em;
+}
+
+.menu_box ul li p {
+  font-size: 1rem;
+  letter-spacing: -1px;
+  text-align: center;
 }
 
 .attention p {
@@ -346,7 +412,7 @@ main p {
   }
 
   .course_box .course_detail{
-    margin: 0;
+    margin: 0 0 45px;
     width: 100%;
     height: auto;
   }
@@ -358,6 +424,15 @@ main p {
 
   .course_box .course_detail p{
     font-size: 1.2rem;
+  }
+
+  .menu_box ul li {
+    width: calc((100% - 50px) / 5);
+    margin-bottom: 5px;
+  }
+
+  .menu_box ul.item-11 li {
+    width: calc((100% - 50px) / 6);
   }
 
   .attention {
