@@ -493,6 +493,7 @@ main p {
 .recomend > p {
   margin: 0 0 20px 0;
   font-size: 1.4rem;
+  letter-spacing: -1px;
 }
 
 .recomend .qbox {
@@ -571,6 +572,33 @@ main p {
   .pickup_text {
     margin: 0 0 0 0;
     padding: 10px;
+  }
+  .recomend {
+    padding: 20px;
+  }
+  .recomend h3 {
+    font-size: 2.4rem;
+  }
+  .recomend .qbox {
+    padding: 20px 10px;
+  }
+  .recomend .qbox button {
+    display: block;
+    width: 90%;
+    margin: 0 auto 5px;
+    padding: 10px 15px;
+    letter-spacing: -1px;
+  }
+  .recomend .qbox button:first-of-type {
+    margin: 0 auto 5px;
+  }
+  .recomend .qbox img {
+    width: 90%;
+  }
+  .recomend .qbox button.return {
+    display: inline-block;
+    width: 40%;
+    margin: 10px 0 0 0;
   }
 }
 
