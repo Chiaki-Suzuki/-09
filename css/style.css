@@ -855,7 +855,7 @@ input.half {
 }
 input.yuubin {
   width: 30%;
-  margin: 0 5px 5px;
+  margin: 0 5px 5px 0;
 }
 
 input,
@@ -927,4 +927,40 @@ text-decoration: underline;
   color: #fff;
   outline: none;
   transition: .5s;
+}
+
+@media screen and (max-width: 768px) {
+  .reserve_form table th,
+  .reserve_form table td {
+    width: 100%;
+    display: block;
+  }
+  .reserve_form table th {
+    padding: 20px 0 5px;
+  }
+  .reserve_form table td {
+    padding: 0 0 20px;
+  }
+  input.half {
+    width: 100%;
+  }
+  input.yuubin {
+    width: 40%;
+  }
+  .reserve_form .sum_box {
+    width: 90%;
+  }
+}
+
+/*-------------------------
+  レスポンシブ用
+-------------------------*/
+.pc_off {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .pc_off {
+    display: inline-block;
+  }
 }
