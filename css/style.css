@@ -818,3 +818,113 @@ main p {
     height: 40px;
   }
 }
+
+/*-------------------------
+  予約フォーム
+-------------------------*/
+.reserve_form {
+  margin: 0 0 40px 0;
+}
+
+.reserve_form img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin: 0 0 20px 0;
+}
+
+.reserve_form table{
+  width: 100%;
+  margin: 0 0 20px 0;
+}
+
+.reserve_form table th{
+  width: 30%;
+}
+
+.reserve_form table th,
+.reserve_form table td {
+  padding: 15px;
+}
+
+input[type=text] {
+  width: 100%;
+}
+input.half {
+  width: 50%;
+}
+input.yuubin {
+  width: 30%;
+  margin: 0 5px 5px;
+}
+
+input,
+select {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px 10px;
+  outline: none;
+}
+
+select {
+  padding: 7px 10px;
+}
+
+.reserve_form table button.auto:hover,
+.reserve_form .conf_btn:hover {
+  opacity: 0.8;
+}
+
+.reserve_form table p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.reserve_form table p a {
+text-decoration: underline;
+}
+
+.reserve_form table p.err {
+  color: #f00;
+}
+
+.reserve_form .sum_box {
+  width: 40%;
+  margin: 0 auto 20px;
+  padding: 20px;
+  text-align: center;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid #594c36;
+  border-radius: 50em;
+  position: relative;
+}
+
+.reserve_form .sum_box::before,
+.reserve_form .sum_box::after {
+  content:'';
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background: #594c36;
+  border-radius: 50em;
+}
+
+.reserve_form .sum_box::after {
+  right: 10px;
+  left: unset;
+}
+
+.reserve_form .conf_btn {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 0;
+  background: #594c36;
+  color: #fff;
+  outline: none;
+  transition: .5s;
+}
