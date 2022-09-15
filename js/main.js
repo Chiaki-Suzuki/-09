@@ -1,6 +1,12 @@
 let app = new Vue({
   el: '#app',
   data: {
+    // アコーディオン用
+    menu: [],
+    gensen: [],
+    zeitaku: [],
+    akami: [],
+    kiwami: [],
     // フォーム用
     name: '',
     nameErr: false,
@@ -10,35 +16,17 @@ let app = new Vue({
     child: 0,
     time: 0,
     course: 0,
-    date: '',
-    // レコメンド用
-    status: 1,
-    answer1: '',
-    answer2: '',
-    resultName: '',
-    resultImg: '',
-    items: {
-      meats: {
-        1: {
-          name: 'ホルモン5種盛り',
-          image: 'image/horumon.jpg'
-        },
-        2: {
-          name: '和牛カルビ',
-          image: 'image/karubi.jpg'
-        }
-      },
-      ippin: {
-        1: {
-          name: '白菜キムチ',
-          image: 'image/kimuti.jpg'
-        },
-        2: {
-          name: 'テールおじや',
-          image: 'image/ojiya.jpg'
-        }
-      }
-    }
+    date: ''
+  },
+  created: async function () {
+    // アコーディオン用メニュー取得
+    let res = await fetch('../実務課題09/js/menu.json');
+    let items = await res.json();
+    this.menu = items;
+    this.gensen = this.menu[0].gensen;
+    this.zeitaku = this.menu[0].zeitaku;
+    this.akami = this.menu[0].akami;
+    this.kiwami = this.menu[0].kiwami;
   },
   filters: {
     number_format: function (val) {
@@ -46,33 +34,6 @@ let app = new Vue({
     }
   },
   methods: {
-    /*-------------------------
-      レコメンド機能
-    -------------------------*/
-    // あなたの焼き肉の楽しみ方は？
-    q1: function (ans) {
-      this.answer1 = ans;
-      if (ans === 'meats') {
-        this.status = 2;
-      } else if (ans === 'ippin') {
-        this.status = 3;
-      }
-    },
-    // 気になるのはどっち？
-    q2: function (ans) {
-      this.answer2 = ans;
-      this.resultName = this.items[this.answer1][this.answer2].name
-      this.resultImg = this.items[this.answer1][this.answer2].image
-      this.status = 4;
-    },
-    // もう一度
-    reset: function () {
-      this.answer1 = '';
-      this.answer2 = '';
-      this.resultName = '';
-      this.resultImg = '';
-      this.status = 1;
-    },
     /*-------------------------
       フォーム
     -------------------------*/

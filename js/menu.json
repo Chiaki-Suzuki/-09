@@ -1,0 +1,174 @@
+[{
+  "gensen": {
+    "menu1": {
+      "name": "キムチ",
+      "image": "image/kimuti.jpg"
+    },
+    "menu2": {
+      "name": "ナムル",
+      "image": "image/namuru.jpg"
+    },
+    "menu3": {
+      "name": "チョレギサラダ",
+      "image": "image/sarada.jpg"
+    },
+    "menu4": {
+      "name": "タン塩",
+      "image": "image/tan.jpg"
+    },
+    "menu5": {
+      "name": "トントロ",
+      "image": "image/ton.jpg"
+    },
+    "menu6": {
+      "name": "カルビ",
+      "image": "image/karubi.jpg"
+    },
+    "menu7": {
+      "name": "ハラミ",
+      "image": "image/gensen.jpg"
+    },
+    "menu8": {
+      "name": "ヒレ",
+      "image": "image/hire.jpg"
+    },
+    "menu9": {
+      "name": "鶏もも",
+      "image": "image/tori.jpg"
+    },
+    "menu10": {
+      "name": "テールおじやorミニ冷麺",
+      "image": "image/ojiya.jpg"
+    },
+    "menu11": {
+      "name": "デザート",
+      "image": "image/desert.jpg"
+    }
+  },
+  "zeitaku": {
+    "menu1": {
+      "name": "キムチ",
+      "image": "image/kimuti.jpg"
+    },
+    "menu2": {
+      "name": "ナムル",
+      "image": "image/namuru.jpg"
+    },
+    "menu3": {
+      "name": "門庭サラダ",
+      "image": "image/sarada.jpg"
+    },
+    "menu4": {
+      "name": "タン塩",
+      "image": "image/tan.jpg"
+    },
+    "menu5": {
+      "name": "和牛上カルビ",
+      "image": "image/karubi.jpg"
+    },
+    "menu6": {
+      "name": "和牛上ロース",
+      "image": "image/zeitaku.jpg"
+    },
+    "menu7": {
+      "name": "国産豚バラ",
+      "image": "image/ton.jpg"
+    },
+    "menu8": {
+      "name": "本日のおすすめ和牛肉2点",
+      "image": "image/hire.jpg"
+    },
+    "menu9": {
+      "name": "テールおじやorミニ冷麺",
+      "image": "image/ojiya.jpg"
+    },
+    "menu10": {
+      "name": "デザート",
+      "image": "image/desert.jpg"
+    }
+  },
+  "akami": {
+    "menu1": {
+      "name": "キムチ",
+      "image": "image/kimuti.jpg"
+    },
+    "menu2": {
+      "name": "ナムル",
+      "image": "image/namuru.jpg"
+    },
+    "menu3": {
+      "name": "サラダ",
+      "image": "image/sarada.jpg"
+    },
+    "menu4": {
+      "name": "和牛黒タン塩",
+      "image": "image/tan.jpg"
+    },
+    "menu5": {
+      "name": "カメノコ",
+      "image": "image/karubi.jpg"
+    },
+    "menu6": {
+      "name": "ヒレ",
+      "image": "image/hire.jpg"
+    },
+    "menu7": {
+      "name": "和牛上ハラミ",
+      "image": "image/gensen.jpg"
+    },
+    "menu8": {
+      "name": "本日の厳選赤身肉2品",
+      "image": "image/akami.jpg"
+    },
+    "menu9": {
+      "name": "テールおじやorミニ冷麺",
+      "image": "image/ojiya.jpg"
+    },
+    "menu10": {
+      "name": "デザート",
+      "image": "image/desert.jpg"
+    }
+  },
+  "kiwami": {
+    "menu1": {
+      "name": "キムチ",
+      "image": "image/kimuti.jpg"
+    },
+    "menu2": {
+      "name": "ナムル",
+      "image": "image/namuru.jpg"
+    },
+    "menu3": {
+      "name": "サラダ",
+      "image": "image/sarada.jpg"
+    },
+    "menu4": {
+      "name": "海鮮盛り",
+      "image": "image/kaisen.jpg"
+    },
+    "menu5": {
+      "name": "タン塩",
+      "image": "image/tan.jpg"
+    },
+    "menu6": {
+      "name": "和牛ブリスケ(ササバラ)",
+      "image": "image/karubi.jpg"
+    },
+    "menu7": {
+      "name": "和牛ヒレ(シャトーブリアン)",
+      "image": "image/hire.jpg"
+    },
+    "menu8": {
+      "name": "和牛上ハラミ",
+      "image": "image/gensen.jpg"
+    },
+    "menu9": {
+      "name": "テールおじやorミニ冷麺",
+      "image": "image/ojiya.jpg"
+    },
+    "menu10": {
+      "name": "デザート",
+      "image": "image/desert.jpg"
+    }
+  }
+}]
