@@ -27,6 +27,7 @@ module.exports = {
     'vue/no-reserved-component-names': 'off',
     'no-invalid-this': 'off',
     'no-multiple-empty-lines': 'off',
-    'max-len': 'off'
+    'max-len': 'off',
+    'space-before-function-paren': 'off'
   },
 };

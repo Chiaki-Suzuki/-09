@@ -5,29 +5,21 @@
       <p>門庭</p>
     </main>
     <Content></Content>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld Content="foooo!!!!"/>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
-
 import Content from './components/Content.vue'
-
-
-
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
-    HelloWorld,
-    Footer,
     Content,
+    Footer,
   }
 }
 </script>

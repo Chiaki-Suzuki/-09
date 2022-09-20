@@ -18,7 +18,7 @@
             <div class="menu_box">
                 <ul class="item-11">
                     <li v-for="menu in gensen" v-bind:key="menu.name">
-                        <img v-bind:src="menu.image">
+                        <img v-bind:src="getUrl(menu.image)">
                             <p>{{ menu.name }}</p>
                         </img>
                     </li>
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="course_box">
+    <div class="course_box">
         <div class="course_info">
             <img src="../assets/images/zeitaku.jpg" alt="門庭贅沢コース">
             <div class="course_detail">
@@ -44,7 +44,7 @@
             <div class="menu_box">
                 <ul>
                     <li v-for="menu in zeitaku" v-bind:key="menu.name">
-                        <img v-bind:src="menu.image" alt="">
+                        <img v-bind:src="getUrl(menu.image)" alt="">
                             <p>{{ menu.name }}</p>
                         </img>
                     </li>
@@ -70,7 +70,7 @@
             <div class="menu_box">
                 <ul>
                     <li v-for="menu in akami" v-bind:key="menu.name">
-                        <img v-bind:src="menu.image" alt="">
+                        <img v-bind:src="getUrl(menu.image)" alt="">
                             <p>{{ menu.name }}</p>
                         </img>
                     </li>
@@ -96,14 +96,14 @@
             <div class="menu_box">
                 <ul>
                     <li v-for="menu in kiwami" v-bind:key="menu.name">
-                        <img v-bind:src="menu.image" alt="">
+                        <img v-bind:src="getUrl(menu.image)" alt="">
                             <p>{{ menu.name }}</p>
                         </img>
                     </li>
                 </ul>
             </div>
         </div>
-    </div> -->
+    </div>
     <div class="attention">
         <p>各コース2名様より承ります。<br>
             全てのコースにプラス1,500円で2時間飲み放題が付けられます(L.O.30分前)<br>
@@ -130,6 +130,11 @@ export default {
   },
   created: () => {
     console.log(this.gensen)
+  },
+  methods: {
+    getUrl: function(img) {
+      return `/images/${img}`
+    }
   }
 }
 </script>
