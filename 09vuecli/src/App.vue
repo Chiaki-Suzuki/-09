@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <Header></Header>
+    <router-link to="/">home</router-link>
+    <router-link to="/news">News</router-link>
+    <router-view/>
     <main>
       <p>門庭</p>
     </main>

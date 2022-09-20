@@ -28,6 +28,7 @@ module.exports = {
     'no-invalid-this': 'off',
     'no-multiple-empty-lines': 'off',
     'max-len': 'off',
-    'space-before-function-paren': 'off'
+    'space-before-function-paren': 'off',
+    'object-curly-spacing': 'off'
   },
 };

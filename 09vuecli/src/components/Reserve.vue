@@ -5,6 +5,8 @@
     <p>肉問屋直営店ならではの、こだわり品質の和牛を取り揃えております。<br>
         皆様のご来店を心よりお待ちしております。
     </p>
+    <router-link to="/news">News</router-link>
+    <router-view/>
     <a href="form.html" class="tel web">Webサイトから予約</a>
     <a href="03-5875-9666" class="tel">Tel:03-5875-9666</a>
     <a href="" class="link">各グルメサイトからは24時間空席確認とネット予約が可能です。<br>
