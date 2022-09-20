@@ -128,9 +128,6 @@ export default {
       kiwami: menu[0].kiwami
     }
   },
-  created: () => {
-    console.log(this.gensen)
-  },
   methods: {
     getUrl: function(img) {
       return `/images/${img}`
