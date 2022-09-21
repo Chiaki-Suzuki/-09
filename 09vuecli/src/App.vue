@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Header></Header>
-    <main>
+    <main v-if="isShow">
       <p>門庭</p>
     </main>
-    <Content></Content>
+    <Content v-on:content-click="formShow"></Content>
     <Footer></Footer>
   </div>
 </template>
@@ -20,6 +20,16 @@ export default {
     Header,
     Content,
     Footer
+  },
+  data: () => {
+    return {
+      isShow: true
+    }
+  },
+  methods: {
+    formShow: function() {
+      this.isShow = false;
+    }
   }
 }
 </script>
