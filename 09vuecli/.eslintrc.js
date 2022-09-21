@@ -39,5 +39,6 @@ module.exports = {
     'space-before-blocks': 'off',
     'indent': 'off',
     'key-spacing': 'off',
+    'spaced-comment': 'off'
   },
 };

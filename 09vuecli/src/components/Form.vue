@@ -64,14 +64,20 @@
                 <tr>
                     <th>ご予約日時</th>
                     <td>
-                        日付：<input type="text" id="datepicker" class="yuubin" placeholder="年/ 月/ 日" readonly>
+                        日付：<datepicker class="datepicker"
+                          :format="DatePickerFormat"
+                          :language="ja"
+                          :disabled-dates="state.disabledDates"
+                          @selected="testFunc"
+                          placeholder="日付を選択してください">
+                        </datepicker>
                         <br class="pc_off"><span class="pc_off">時間：</span><select v-model="time">
                             <option value="0">選択してください</option>
                             <option value="17">17:00</option>
                             <option value="18">18:00</option>
                             <option value="19">19:00</option>
                             <option value="20">20:00</option>
-                            <option value="21" class="last_time">21:00</option>
+                            <option value="21" :class="{last_time: lastShow}">21:00</option>
                         </select>
                     </td>
                 </tr>
@@ -99,6 +105,10 @@
 </template>
 
 <script>
+// datepicker読み込み
+import Datepicker from 'vuejs-datepicker'
+import {ja} from 'vuejs-datepicker/dist/locale'
+
 export default {
   data: () => {
     return {
@@ -111,8 +121,24 @@ export default {
       child: 0,
       time: 0,
       course: 0,
-      date: ''
+      date: '',
+      value2: '',
+      lastShow: false,
+      //フォーマット
+      DatePickerFormat: 'yyyy/MM/dd',
+      //日本語化
+      ja:ja,
+      // 定休日（月曜日）と今日以前の日付を選択できないようにする
+      state: {
+        disabledDates: {
+          to: new Date(),
+          days: [1]
+        }
+      }
     }
+  },
+  components: {
+    Datepicker
   },
   methods: {
     // 名前のバリデーションチェック
@@ -142,6 +168,15 @@ export default {
     // 合計金額を表示
     totalPrice: function () {
       return (parseInt(this.course) * (parseInt(this.adult) + parseInt(this.child)));
+    },
+    // 日曜日の場合は予約可能時間を変更する
+    testFunc: function(day) {
+      console.log(day)
+      if (day.getDay() === 0){
+        this.lastShow = true;
+      } else {
+        this.lastShow = false;
+      }
     }
   }
 }
@@ -256,6 +291,10 @@ text-decoration: underline;
   color: #fff;
   outline: none;
   transition: .5s;
+}
+
+.last_time {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {

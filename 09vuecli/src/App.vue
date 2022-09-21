@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Header></Header>
-    <main v-if="isShow">
+    <main>
       <p>門庭</p>
     </main>
-    <Content v-on:content-click="formShow"></Content>
+    <Content></Content>
     <Footer></Footer>
   </div>
 </template>
@@ -19,17 +19,7 @@ export default {
   components: {
     Header,
     Content,
-    Footer,
-  },
-  data: () => {
-    return {
-      isShow: true
-    }
-  },
-  methods: {
-    formShow: function() {
-      this.isShow = false;
-    }
+    Footer
   }
 }
 </script>
@@ -43,7 +33,6 @@ export default {
   color: #2c3e50;
   margin-top: 60px; */
 }
-
 /*-------------------------
   初期化
 -------------------------*/
@@ -51,23 +40,19 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
-
 body {
   font-size: 1.7rem;
   font-family: serif, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   background: url("./assets/images/back.jpg") 0 0 repeat;
 }
-
 ul, ol {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-
 p {
   margin-bottom: 0;
 }
-
 /*-------------------------
   グローバル
 -------------------------*/
@@ -75,13 +60,11 @@ p {
   width: 870px;
   margin: 0 auto;
 }
-
 @media screen and (max-width: 768px) {
   .container {
     width: 90%;
   }
 }
-
 h2 {
   font-size: 6.2rem;
   font-weight: 800;
@@ -92,18 +75,15 @@ h2 {
   letter-spacing: -0.5rem;
   margin: -7px 0 10px 0;
 }
-
 @media screen and (max-width: 768px) {
   h2 {
     font-size: 3rem;
   }
 }
-
 .top {
   position: relative;
   z-index: 10;
 }
-
 .top a {
   position: fixed;
   width: 120px;
@@ -112,15 +92,12 @@ h2 {
   right: 0;
   background: url("./assets/images/top.png") 0 0 / cover no-repeat;
 }
-
 .top a:hover {
   opacity: 0.8;
 }
-
 .top a p {
   text-indent: -9999px;
 }
-
 @media screen and (max-width: 768px) {
   .top a {
     width: 50px;
@@ -130,7 +107,6 @@ h2 {
     text-decoration: none;
     background: rgba(0,0,0,0.6);
   }
-
   .top a::before {
     content: '▲TOP';
     display: block;
@@ -140,7 +116,6 @@ h2 {
     padding: 7px 0;
   }
 }
-
 /*-------------------------
   キービジュアル
 -------------------------*/
@@ -151,7 +126,6 @@ main {
   position: relative;
   margin: 0 0 80px 0;
 }
-
 main::before {
   content: '';
   display: block;
@@ -164,11 +138,9 @@ main::before {
   background: rgba(255,255,255,0.6) url("./assets/images/logo2.png") center 50% / 60% no-repeat;
   box-shadow: 3px 3px 10px rgb(0,0,0,.8)
 }
-
 main p {
   text-indent: -9999px;
 }
-
 @media screen and (max-width: 768px) {
   main {
     background: url("./assets/images/hu.jpg") 0 0 / cover no-repeat;
@@ -176,7 +148,6 @@ main p {
     aspect-ratio: 25 / 14;
     margin: 0 0 30px 0;
   }
-
   main::before {
     content: '';
     display: none;
