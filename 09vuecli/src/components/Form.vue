@@ -148,6 +148,11 @@ export default {
   components: {
     Datepicker
   },
+  filters: {
+    number_format: function (val) {
+      return val.toLocaleString();
+    }
+  },
   methods: {
     // 名前のバリデーションチェック
     nameCheck: function () {
@@ -319,6 +324,16 @@ text-decoration: underline;
   display: none;
 }
 
+.datepicker {
+  width: 40%;
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+.datepicker input {
+  padding: 6.25px 10px;
+}
+
 @media screen and (max-width: 768px) {
   .reserve_form table th,
   .reserve_form table td {
@@ -340,6 +355,11 @@ text-decoration: underline;
   .reserve_form .sum_box {
     width: 90%;
   }
+  .datepicker {
+  width: auto;
+  display: inline-block;
+  margin: 0 0 5px 0;
+}
 }
 
 /*-------------------------
