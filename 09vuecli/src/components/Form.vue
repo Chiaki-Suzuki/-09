@@ -17,14 +17,15 @@
                     <td>
                         <input type="tel" class="half" v-model.lazy="tel" v-on:change="telCheck">
                         <p>※ハイフン不要</p>
-                        <p class="err" v-if="telErr">半角数字で入力してください。</p>
+                        <p class="err" v-if="telErr">半角数字のみで入力してください。</p>
                     </td>
                 </tr>
                 <tr>
                     <th>ご住所</th>
                     <td>
-                        〒<input type="tel" class="yuubin" id="zip" onKeyUp="$('#zip').zip2addr('#address');"><br>
-                        <input type="text" id="address">
+                        〒<input type="tel" class="yuubin" id="zip" v-on:change="zipFunc($event)">
+                        <p class="err" v-if="zipErr">半角数字で入力してください。</p>
+                        <input type="text" id="address" v-model="address">
                         <p>※郵便番号を入力すると自動で町名まで入力されます。</p>
                     </td>
                 </tr>
@@ -68,7 +69,7 @@
                           :format="DatePickerFormat"
                           :language="ja"
                           :disabled-dates="state.disabledDates"
-                          @selected="testFunc"
+                          @selected="dateFunc"
                           placeholder="日付を選択してください">
                         </datepicker>
                         <br class="pc_off"><span class="pc_off">時間：</span><select v-model="time">
@@ -109,6 +110,9 @@
 import Datepicker from 'vuejs-datepicker'
 import {ja} from 'vuejs-datepicker/dist/locale'
 
+// zipcodeja読み込み
+import zipcodeJa from 'zipcode-ja';
+
 export default {
   data: () => {
     return {
@@ -124,6 +128,7 @@ export default {
       date: '',
       value2: '',
       lastShow: false,
+      // ここからdatepicker用
       //フォーマット
       DatePickerFormat: 'yyyy/MM/dd',
       //日本語化
@@ -134,7 +139,10 @@ export default {
           to: new Date(),
           days: [1]
         }
-      }
+      },
+      // ここからzipcodeJa
+      address: '',
+      zipErr: false
     }
   },
   components: {
@@ -170,12 +178,25 @@ export default {
       return (parseInt(this.course) * (parseInt(this.adult) + parseInt(this.child)));
     },
     // 日曜日の場合は予約可能時間を変更する
-    testFunc: function(day) {
+    dateFunc: function(day) {
       console.log(day)
       if (day.getDay() === 0){
         this.lastShow = true;
       } else {
         this.lastShow = false;
+      }
+    },
+    // 郵便番号から住所を自動入力
+    zipFunc: function(event) {
+      let zip = event.target.value.replace(/-/g, '');
+
+      // 郵便番号のバリデーションチェック
+      if (!zip.match(/^[0-9]+$/)) {
+        this.zipErr = true;
+        return
+      } else {
+        this.zipErr = false;
+        this.address = zipcodeJa[zip].address.join('')
       }
     }
   }
@@ -250,6 +271,7 @@ text-decoration: underline;
 
 .reserve_form table p.err {
   color: #f00;
+  margin: 0 0 5px;
 }
 
 .reserve_form .sum_box {
