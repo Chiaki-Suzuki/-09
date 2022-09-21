@@ -29,6 +29,15 @@ module.exports = {
     'no-multiple-empty-lines': 'off',
     'max-len': 'off',
     'space-before-function-paren': 'off',
-    'object-curly-spacing': 'off'
+    'object-curly-spacing': 'off',
+    'vue/no-deprecated-v-on-native-modifier': 'off',
+    'no-trailing-spaces': 'off',
+    'no-irregular-whitespace': 'off',
+    'vue/no-deprecated-filter': 'off',
+    'prefer-const': 'off',
+    'no-unused-vars': 'off',
+    'space-before-blocks': 'off',
+    'indent': 'off',
+    'key-spacing': 'off',
   },
 };

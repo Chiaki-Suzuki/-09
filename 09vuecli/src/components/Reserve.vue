@@ -1,32 +1,44 @@
 <template>
     <section class="reserve">
-    <h2>席を予約する</h2>
-    <img src="../assets/images/yoyaku.jpg" alt="ご予約">
-    <p>肉問屋直営店ならではの、こだわり品質の和牛を取り揃えております。<br>
-        皆様のご来店を心よりお待ちしております。
-    </p>
-    <router-link to="/news">News</router-link>
-    <router-view/>
-    <a href="form.html" class="tel web">Webサイトから予約</a>
-    <a href="03-5875-9666" class="tel">Tel:03-5875-9666</a>
-    <a href="" class="link">各グルメサイトからは24時間空席確認とネット予約が可能です。<br>
-        併せてご利用ください。
-    </a>
-    <div class="sns">
-        <p>門庭を気に入っていただけた方は<br>
-            いいね＆フォローお願いします!
-        </p>
-        <div class="sns_btn">
-            <a href=""><p>facebook</p></a>
-            <a href=""><p>twitter</p></a>
-        </div>
+    <div class="reserve_box" v-if="isShow">
+      <h2>席を予約する</h2>
+      <img src="../assets/images/yoyaku.jpg" alt="ご予約">
+      <p>肉問屋直営店ならではの、こだわり品質の和牛を取り揃えております。<br>
+          皆様のご来店を心よりお待ちしております。
+      </p>
+      <router-link to="/form" v-on:click.native="formShow" class="tel web">Webサイトから予約</router-link>
+      <a href="03-5875-9666" class="tel">Tel:03-5875-9666</a>
+      <a href="" class="link">各グルメサイトからは24時間空席確認とネット予約が可能です。<br>
+          併せてご利用ください。
+      </a>
+      <div class="sns">
+          <p>門庭を気に入っていただけた方は<br>
+              いいね＆フォローお願いします!
+          </p>
+          <div class="sns_btn">
+              <a href=""><p>facebook</p></a>
+              <a href=""><p>twitter</p></a>
+          </div>
+      </div>
     </div>
+    <router-view/>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'Reserve'
+  name: 'Reserve',
+  data: () => {
+    return {
+      isShow: true
+    }
+  },
+  methods: {
+    formShow: function() {
+      this.isShow = false;
+      this.$emit('form-click')
+    }
+  }
 }
 </script>
 

@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import News from '@/components/PostNews'
+import Form from '@/components/Form'
 
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/news', component: News }
+  { path: '/form', component: Form }
 ]
 const router = new VueRouter({
   mode: 'history',

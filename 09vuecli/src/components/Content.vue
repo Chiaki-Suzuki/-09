@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <Msg></Msg>
-    <Course></Course>
-    <Pickup></Pickup>
-    <Store></Store>
-    <Reserve></Reserve>
+    <Msg v-if="isShow"></Msg>
+    <Course v-if="isShow"></Course>
+    <Pickup v-if="isShow"></Pickup>
+    <Store v-if="isShow"></Store>
+    <Reserve v-on:form-click="formShow"></Reserve>
   </div>
 </template>
 
@@ -23,6 +23,17 @@ export default {
     Pickup,
     Store,
     Reserve
+  },
+  data: () => {
+    return {
+      isShow: true
+    }
+  },
+  methods: {
+    formShow: function() {
+      this.isShow = false;
+      this.$emit('content-click')
+    }
   }
 }
 </script>
