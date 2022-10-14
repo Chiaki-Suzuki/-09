@@ -2,7 +2,7 @@
     <section class="reserve">
     <div class="reserve_box" v-if="isShow">
       <h2>席を予約する</h2>
-      <img src="../assets/images/yoyaku.jpg" alt="ご予約">
+      <img src="././img/yoyaku.jpg" alt="ご予約">
       <p>肉問屋直営店ならではの、こだわり品質の和牛を取り揃えております。<br>
           皆様のご来店を心よりお待ちしております。
       </p>
@@ -109,11 +109,11 @@ export default {
   display: block;
   width: 72px;
   height: 72px;
-  background: url("../assets/images/fb.png") 0 0 / cover no-repeat;
+  background: url("././img/fb.png") 0 0 / cover no-repeat;
 }
 
 .reserve .sns .sns_btn a:nth-of-type(2) {
-  background: url("../assets/images/tw.png") 0 0 / cover no-repeat;
+  background: url("././img/tw.png") 0 0 / cover no-repeat;
 }
 
 .reserve .sns .sns_btn a:hover {

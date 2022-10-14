@@ -1,7 +1,7 @@
 <template>
   <section class="msg">
   <div class="msg_box">
-      <img src="../assets/images/mise.jpg" alt="イメージ01">
+      <img src="././img/mise.jpg" alt="イメージ01">
       <div class="msg_text">
           <h3>門庭は肉問屋直営店です</h3>
           <p>門前仲町の庭でありたい―――<br>
@@ -12,7 +12,7 @@
       </div>
   </div>
   <div class="msg_box">
-      <img src="../assets/images/namaniku.jpg" alt="イメージ02">
+      <img src="././img/namaniku.jpg" alt="イメージ02">
       <div class="msg_text">
           <h3>こだわりの味</h3>
           <p>門庭では毎月、<br>

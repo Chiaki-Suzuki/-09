@@ -1,9 +1,10 @@
-<template>
+let course = {
+  template: `
   <section class="course" id="course">
     <h2>コースメニュー</h2>
     <div class="course_box">
         <div class="course_info">
-            <img src="././img/gensen.jpg" alt="門庭厳選コース">
+            <img src="image/gensen.jpg" alt="門庭厳選コース">
             <div class="course_detail">
                 <h3>門庭厳選コース(11品)<span>税込3,500円</span></h3>
                 <p>キムチ/ナムル/チョレギサラダ/<br>
@@ -18,9 +19,8 @@
             <div class="menu_box">
                 <ul class="item-11">
                     <li v-for="menu in gensen" v-bind:key="menu.name">
-                        <img v-bind:src="getUrl(menu.image)">
-                            <p>{{ menu.name }}</p>
-                        </img>
+                        <img v-bind:src="menu.image" alt="">
+                        <p>{{ menu.name }}</p>
                     </li>
                 </ul>
             </div>
@@ -28,7 +28,7 @@
     </div>
     <div class="course_box">
         <div class="course_info">
-            <img src="././img/zeitaku.jpg" alt="門庭贅沢コース">
+            <img src="image/zeitaku.jpg" alt="門庭贅沢コース">
             <div class="course_detail">
                 <h3>門庭贅沢コース(10品)<span>税込5,000円</span></h3>
                 <p>キムチ/ナムル/門庭サラダ/<br>
@@ -44,9 +44,8 @@
             <div class="menu_box">
                 <ul>
                     <li v-for="menu in zeitaku" v-bind:key="menu.name">
-                        <img v-bind:src="getUrl(menu.image)" alt="">
-                            <p>{{ menu.name }}</p>
-                        </img>
+                        <img v-bind:src="menu.image" alt="">
+                        <p>{{ menu.name }}</p>
                     </li>
                 </ul>
             </div>
@@ -54,7 +53,7 @@
     </div>
     <div class="course_box">
         <div class="course_info">
-            <img src="././img/akami.jpg" alt="門庭究極の赤身コース">
+            <img src="image/akami.jpg" alt="門庭究極の赤身コース">
             <div class="course_detail">
                 <h3>門庭究極の赤身コース(10品)<span>税込6,000円</span></h3>
                 <p>キムチ/ナムル/サラダ/<br>
@@ -70,9 +69,8 @@
             <div class="menu_box">
                 <ul>
                     <li v-for="menu in akami" v-bind:key="menu.name">
-                        <img v-bind:src="getUrl(menu.image)" alt="">
-                            <p>{{ menu.name }}</p>
-                        </img>
+                        <img v-bind:src="menu.image" alt="">
+                        <p>{{ menu.name }}</p>
                     </li>
                 </ul>
             </div>
@@ -80,7 +78,7 @@
     </div>
     <div class="course_box">
         <div class="course_info">
-            <img src="././img/kiwami.jpg" alt="最高峰の極みコース">
+            <img src="image/kiwami.jpg" alt="最高峰の極みコース">
             <div class="course_detail">
                 <h3>最高峰の極みコース(10品)<span>税込8,000円</span></h3>
                 <p>キムチ/ナムル/サラダ/海鮮盛り/<br>
@@ -96,9 +94,8 @@
             <div class="menu_box">
                 <ul>
                     <li v-for="menu in kiwami" v-bind:key="menu.name">
-                        <img v-bind:src="getUrl(menu.image)" alt="">
-                            <p>{{ menu.name }}</p>
-                        </img>
+                        <img v-bind:src="menu.image" alt="">
+                        <p>{{ menu.name }}</p>
                     </li>
                 </ul>
             </div>
@@ -112,206 +109,25 @@
         </p>
     </div>
   </section>
-</template>
-
-<script>
-import menu from './menu.json'
-
-export default {
-  name: 'Course',
-  data: () => {
+  `,
+  data(props) {
     return {
-      menu: menu,
-      gensen: menu[0].gensen,
-      zeitaku: menu[0].zeitaku,
-      akami: menu[0].akami,
-      kiwami: menu[0].kiwami
+      // アコーディオン用
+      menu: [],
+      gensen: [],
+      zeitaku: [],
+      akami: [],
+      kiwami: [],
     }
   },
-  methods: {
-    getUrl: function(img) {
-      return `/./img/${img}`
-    }
+  async created() {
+    // アコーディオン用メニュー取得
+    let res = await fetch('js/menu.json');
+    let items = await res.json();
+    this.menu = items;
+    this.gensen = this.menu[0].gensen;
+    this.zeitaku = this.menu[0].zeitaku;
+    this.akami = this.menu[0].akami;
+    this.kiwami = this.menu[0].kiwami;
   }
 }
-</script>
-
-<style>
-/*-------------------------
-  course
--------------------------*/
-.course {
-  margin-bottom: 42px;
-}
-
-.course_box {
-  width: 100%;
-  background-color: rgba(255,255,255,0.7);
-  margin: 0 0 20px 0;
-}
-
-.course_info {
-  display: flex;
-  align-items: center;
-  padding: 22px 25px;
-}
-
-.course_box .course_detail{
-  width: calc(100% - 325px);
-  height: 240px;
-  margin: 0 0 0 85px;
-}
-
-.course_box .course_detail h3{
-  font-size: 3.5rem;
-  line-height: 4rem;
-  text-align: right;
-  margin: 0 0 10px 0;
-}
-
-.course_box .course_detail h3 span {
-  display: block;
-  color: #b32f2e;
-}
-
-.course_box .course_detail p{
-  font-size: 2rem;
-  text-align: center;
-}
-
-.attention {
-  width: 100%;
-  align-items: center;
-  background-color: rgba(255,255,255,0.7);
-  border: 1px solid;
-  border-radius: 10px;
-  line-height: 1.8rem;
-  padding: 33px 20px;
-  margin: 35px 0 20px 0;
-}
-
-/* アコーディオンメニュー */
-.menu {
-  position: relative;
-}
-
-.menu label {
-  position: absolute;
-  top: -50px;
-  right: 20px;
-  background-color: #b32f2e;
-  color: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.menu label:hover {
-  opacity: 0.8;
-}
-
-.menu input {
-  display: none;
-}
-
-.menu_box {
-  height: 0;
-  padding: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: .5s;
-}
-
-.menu input:checked ~ .menu_box {
-  padding: 0 20px 10px;
-  height: auto;
-  opacity: 1;
-}
-
-.menu_box ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.menu_box ul li {
-  width: calc((100% - 100px) / 10);
-}
-
-.menu_box ul.item-11 li {
-  width: calc((100% - 100px) / 11);
-}
-
-.menu_box ul li img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50em;
-}
-
-.menu_box ul li p {
-  font-size: 1rem;
-  letter-spacing: -1px;
-  text-align: center;
-}
-
-.attention p {
-  margin-bottom: 0;
-}
-
-@media screen and (max-width: 768px) {
-  .course {
-    margin: 0 0 20px 0;
-  }
-
-  .course_box {
-    margin: 0 0 15px 0;
-  }
-
-  .course_info {
-    display: block;
-    padding: 10px;
-  }
-
-  .course_box img {
-    display: block;
-    margin: 0 auto 10px;
-    width: 80%;
-    height: auto;
-    aspect-ratio: 5 / 2;
-    object-fit:cover;
-  }
-
-  .course_box .course_detail{
-    margin: 0 0 45px;
-    width: 100%;
-    height: auto;
-  }
-
-  .course_box .course_detail h3{
-    font-size: 2.2rem;
-    line-height: 2.5rem;
-  }
-
-  .course_box .course_detail p{
-    font-size: 1.2rem;
-  }
-
-  .menu_box ul li {
-    width: calc((100% - 30px) / 5);
-    margin-bottom: 5px;
-  }
-
-  .menu_box ul.item-11 li {
-    width: calc((100% - 20px) / 6);
-  }
-
-  .attention {
-    margin: 0 0 0 0;
-    padding: 10px;
-    font-size: 1.1rem;
-    line-height: 1.2rem;
-  }
-}
-</style>

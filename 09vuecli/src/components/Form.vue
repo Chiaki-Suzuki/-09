@@ -1,6 +1,6 @@
 <template>
   <section class="reserve_form">
-    <img src="../assets/images/niku.jpg" alt="">
+    <img src="././img/niku.jpg" alt="">
     <div class="container">
         <h2>ご予約フォーム</h2>
         <form>

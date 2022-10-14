@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>門庭</title>
+        <meta name="description" content="">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+        <script type="text/javascript" src="js/jquery.zip2addr.js"></script>
+        <script src="https://unpkg.com/vue@next"></script>
+    </head>
+    <body>
+        <div id="app">
+            <montei-header></montei-header>
+            <section class="reserve_form">
+                <img src="image/niku.jpg" alt="">
+                <div class="container">
+                    <h2>ご予約フォーム</h2>
+                    <form>
+                        <table>
+                            <tr>
+                                <th>お名前</th>
+                                <td>
+                                    <input type="text" class="half" v-model.lazy="name" v-on:change="nameCheck">
+                                    <p class="err" v-if="nameErr">記号・数字の使用は不可です。</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>お電話番号</th>
+                                <td>
+                                    <input type="tel" class="half" v-model.lazy="tel" v-on:change="telCheck">
+                                    <p>※ハイフン不要</p>
+                                    <p class="err" v-if="telErr">半角数字で入力してください。</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>ご住所</th>
+                                <td>
+                                    〒<input type="tel" class="yuubin" id="zip" onKeyUp="$('#zip').zip2addr('#address');"><br>
+                                    <input type="text" id="address">
+                                    <p>※郵便番号を入力すると自動で町名まで入力されます。</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>来店人数</th>
+                                <td>
+                                    大人：
+                                    <select v-model="adult" v-on:change="totalPrice">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select> 人　
+                                    子ども：
+                                    <select v-model="child" v-on:change="totalPrice">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select> 人
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>ご予約日時</th>
+                                <td>
+                                    日付：<input type="text" id="datepicker" class="yuubin" placeholder="年/ 月/ 日" readonly>
+                                    <br class="pc_off"><span class="pc_off">時間：</span><select v-model="time">
+                                        <option value="0">選択してください</option>
+                                        <option value="17">17:00</option>
+                                        <option value="18">18:00</option>
+                                        <option value="19">19:00</option>
+                                        <option value="20">20:00</option>
+                                        <option value="21" class="last_time">21:00</option>
+                                    </select>
+
+                                    <!-- test -->
+                                    <!-- <br>
+                                    test：<input type="datetime-local" :min="minDate"> -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>ご予約コース</th>
+                                <td>
+                                    <select v-model="course" v-on:change="totalPrice">
+                                        <option value="0">選択してください</option>
+                                        <option value="3500">門庭厳選コース</option>
+                                        <option value="5000">門庭贅沢コース</option>
+                                        <option value="6000">門庭究極の赤身コース</option>
+                                        <option value="8000">最高峰の極みコース</option>
+                                    </select>
+                                    <p>※コース内容のご確認は<a href="index.html#course" target="_blank">こちら</a>。</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="sum_box">
+                            <p>お支払予定金額：{{ $filters.number_format(totalPrice()) }}円</p>
+                        </div>
+                        <button class="conf_btn">ご入力内容確認</button>
+                    </form>
+                </div>
+            </section>
+            <montei-footer></montei-footer>
+        </div>
+        <script>
+        // 日付選択
+        $(function(){
+            $('#datepicker').datepicker({
+                // 表示形式
+                dateFormat:'yy/mm/dd',
+                // 月曜日を選択不可に
+                beforeShowDay: function(date) {
+                    if(date.getDay() == 1){
+                        return [false, 'ui-state-disabled'];
+                    } else {
+                        return [true, ''];
+                    }
+                },
+                // 過去の日付を選択不可に
+                minDate: 0,
+                // 日曜日を選択した場合は、選択できる時間を制限する
+                onSelect: (date) => {
+                    let dt = new Date(date)
+                    if (dt.getDay() == 0) {
+                        $('.last_time').css('display', 'none');
+                    } else {
+                        $('.last_time').css('display', 'block');
+                    }
+                }
+            })
+        });
+        </script>
+    </body>
+    <script src="js/components/header.js"></script>
+    <script src="js/components/footer.js"></script>
+    <script src="js/form.js"></script>
+</html>

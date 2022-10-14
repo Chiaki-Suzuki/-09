@@ -53,7 +53,7 @@ html {
 body {
   font-size: 1.7rem;
   font-family: serif, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  background: url("./assets/images/back.jpg") 0 0 repeat;
+  background: url("./assets/./img/back.jpg") 0 0 repeat;
 }
 ul, ol {
   list-style-type: none;
@@ -100,7 +100,7 @@ h2 {
   height: 160px;
   bottom: 0;
   right: 0;
-  background: url("./assets/images/top.png") 0 0 / cover no-repeat;
+  background: url("./assets/./img/top.png") 0 0 / cover no-repeat;
 }
 .top a:hover {
   opacity: 0.8;
@@ -132,7 +132,7 @@ h2 {
 main {
   width: 100%;
   height: 674px;
-  background: url("./assets/images/tumami.jpg") 0 0 / cover no-repeat;
+  background: url("./assets/./img/tumami.jpg") 0 0 / cover no-repeat;
   position: relative;
   margin: 0 0 80px 0;
 }
@@ -145,7 +145,7 @@ main::before {
   transform: translate(-50%, -50%);
   width: 180px;
   height: 325px;
-  background: rgba(255,255,255,0.6) url("./assets/images/logo2.png") center 50% / 60% no-repeat;
+  background: rgba(255,255,255,0.6) url("./assets/./img/logo2.png") center 50% / 60% no-repeat;
   box-shadow: 3px 3px 10px rgb(0,0,0,.8)
 }
 main p {
@@ -153,7 +153,7 @@ main p {
 }
 @media screen and (max-width: 768px) {
   main {
-    background: url("./assets/images/hu.jpg") 0 0 / cover no-repeat;
+    background: url("./assets/./img/hu.jpg") 0 0 / cover no-repeat;
     height: auto;
     aspect-ratio: 25 / 14;
     margin: 0 0 30px 0;

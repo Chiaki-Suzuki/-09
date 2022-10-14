@@ -2,7 +2,7 @@
   <section class="pickup">
     <h2>ピックアップメニュー</h2>
     <div class="pickup_box">
-        <img src="../assets/images/kimuti.jpg" alt="白菜キムチ">
+        <img src="././img/kimuti.jpg" alt="白菜キムチ">
         <div class="pickup_text">
             <h4>白菜キムチ</h4>
             <p>この道45年の沖縄出身の料理長が<br>
@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="pickup_box">
-        <img src="../assets/images/ojiya.jpg" alt="テールおじや">
+        <img src="././img/ojiya.jpg" alt="テールおじや">
         <div class="pickup_text">
             <h4>テールおじや</h4>
             <p>和牛の尾を使用した<br>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="pickup_box">
-        <img src="../assets/images/horumon.jpg" alt="ホルモン5種盛り">
+        <img src="././img/horumon.jpg" alt="ホルモン5種盛り">
         <div class="pickup_text">
             <h4>ホルモン5種盛り</h4>
             <p>屠場より入荷した<br>
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="pickup_box">
-        <img src="../assets/images/karubi.jpg" alt="和牛カルビ">
+        <img src="././img/karubi.jpg" alt="和牛カルビ">
         <div class="pickup_text">
             <h4>和牛カルビ</h4>
             <p>その時に入荷した和牛バラを<br>
@@ -132,7 +132,7 @@ export default {
       this.status = 1;
     },
     getUrl: function(img) {
-      return `/images/${img}`
+      return `/./img/${img}`
     }
   }
 }

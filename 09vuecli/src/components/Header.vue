@@ -28,7 +28,7 @@ export default {
   width: 180px;
   height: 100px;
   margin-bottom: 2px;
-  background: url("../assets/images/logo2-1.png") 0 0 / cover no-repeat;
+  background: url("././img/logo2-1.png") 0 0 / cover no-repeat;
 }
 
 .gl-header h1 a {

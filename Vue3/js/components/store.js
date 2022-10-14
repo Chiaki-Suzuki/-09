@@ -1,4 +1,5 @@
-<template>
+let store = {
+  template: `
   <section class="store">
     <h2>店舗案内</h2>
     <p>お肉を焼いた煙はテーブル下に吸引されるので、<br>
@@ -6,15 +7,15 @@
     </p>
     <ul>
         <li>
-            <img src="././img/naka1.jpg" alt="">
+            <img src="image/naka1.jpg" alt="">
             <p>テーブル席<br>(2～6名様用)</p>
         </li>
         <li>
-            <img src="././img/naka2.jpg" alt="">
+            <img src="image/naka2.jpg" alt="">
             <p>テーブル席<br>(8～13名様用)</p>
         </li>
         <li>
-            <img src="././img/naka3.jpg" alt="">
+            <img src="image/naka3.jpg" alt="">
             <p>25名様～38名様で<br>貸し切り承ります。</p>
         </li>
     </ul>
@@ -57,100 +58,5 @@
         </tr>
     </table>
   </section>
-</template>
-
-<script>
-export default {
-  name: 'Store'
+  `
 }
-</script>
-
-<style>
-/*-------------------------
-  store
--------------------------*/
-.store {
-  margin: 0 0 50px;
-}
-
-.store > p {
-  text-align: center;
-  margin: 0 0 20px 0;
-}
-
-.store > ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.store > ul li img{
-  display: block;
-  margin: 0 0 10px 0;
-}
-
-.store > ul li p{
-  text-align: center;
-  font-size: 1.4rem;
-  margin: 0 0 10px 0;
-}
-
-.store > table {
-  width: 100%;
-  background-color: rgba(255,255,255,0.7);
-  font-size: 1.4rem;
-  margin: 0 0 25px 0;
-}
-
-.store > table tr th,
-.store > table tr td {
-  padding: 9px 10px;
-}
-
-.store > table tr th {
-  width: 33%;
-  text-align: center;
-}
-
-.store iframe {
-  margin: 0 0 15px 0;
-}
-
-@media screen and (max-width: 768px) {
-  .store {
-    margin: 0 0 0px;
-  }
-  .store > p {
-    font-size: 1.3rem;
-    margin: 0 0 10px 0;
-  }
-  .store > ul {
-    display: block;
-    margin: 0 0 20px 0;
-  }
-  .store > ul li {
-    display: flex;
-    align-items: center;
-  }
-  .store > ul li img {
-    width: 50%;
-    margin: 0 0 0 0;
-  }
-  .store > ul li p {
-    margin: 0 auto;
-  }
-  .store > table {
-    font-size: 1rem;
-    margin: 0 0 15px 0;
-  }
-  .store > table tr th,
-  .store > table tr td {
-  padding: 1px 10px;
-  }
-
-  .store > iframe {
-    height: auto;
-    aspect-ratio: 11 / 10;
-  }
-}
-</style>
